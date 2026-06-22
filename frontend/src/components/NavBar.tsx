@@ -1,19 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import Logo from '../../public/Dagu_Logo.png'
+import Logo from "../../public/Dagu_Logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 border-b
+        ${
+          scrolled
+            ? "bg-white/70 dark:bg-gray-950/70 backdrop-blur-md border-zinc-200/40 dark:border-zinc-800/40"
+            : "bg-white dark:bg-gray-950 border-zinc-200 dark:border-zinc-800"
+        }`}
+    >
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex h-20 items-center justify-between">
-          
+
           {/* Logo */}
           <Link href="/">
             <Image
@@ -28,31 +45,19 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-10">
-            <Link
-              href="/"
-              className="text-sm font-medium hover:text-green-600 transition-colors"
-            >
+            <Link href="/" className="text-sm font-medium hover:text-green-600 transition-colors">
               Home
             </Link>
 
-            <Link
-              href="/pricing"
-              className="text-sm font-medium hover:text-green-600 transition-colors"
-            >
+            <Link href="/pricing" className="text-sm font-medium hover:text-green-600 transition-colors">
               Pricing
             </Link>
 
-            <Link
-              href="/developers"
-              className="text-sm font-medium hover:text-green-600 transition-colors"
-            >
+            <Link href="/developers" className="text-sm font-medium hover:text-green-600 transition-colors">
               Developers
             </Link>
 
-            <Link
-              href="/contact"
-              className="text-sm font-medium hover:text-green-600 transition-colors"
-            >
+            <Link href="/contact" className="text-sm font-medium hover:text-green-600 transition-colors">
               Contact Us
             </Link>
           </nav>
@@ -68,10 +73,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -80,21 +82,10 @@ export default function Navbar() {
         {isOpen && (
           <div className="border-t py-5 md:hidden dark:border-zinc-800">
             <nav className="flex flex-col gap-4">
-              <Link href="/" className="text-sm">
-                Home
-              </Link>
-
-              <Link href="/pricing" className="text-sm">
-                Pricing
-              </Link>
-
-              <Link href="/developers" className="text-sm">
-                Developers
-              </Link>
-
-              <Link href="/contact" className="text-sm">
-                Contact Us
-              </Link>
+              <Link href="/" className="text-sm">Home</Link>
+              <Link href="/pricing" className="text-sm">Pricing</Link>
+              <Link href="/developers" className="text-sm">Developers</Link>
+              <Link href="/contact" className="text-sm">Contact Us</Link>
 
               <Link
                 href="/login"

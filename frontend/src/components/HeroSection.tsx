@@ -6,7 +6,7 @@ import heroImage from "../../public/Images.png";
 
 export default function HeroSection() {
   return (
-    <section className="w-full bg-white dark:bg-zinc-950 transition-colors duration-300">
+    <section className="w-full bg-white dark:bg-gray-950 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-12 py-20 lg:grid-cols-2">
 
