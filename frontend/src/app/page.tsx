@@ -1,4 +1,5 @@
 
+import FeatureSection from "@/components/Features";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/NavBar";
 import Trustedby from "@/components/Partners";
@@ -10,6 +11,7 @@ export default function Home() {
    <Navbar/>
    <HeroSection/>
    <Trustedby/>
+   <FeatureSection/>
    </>
   );
 }

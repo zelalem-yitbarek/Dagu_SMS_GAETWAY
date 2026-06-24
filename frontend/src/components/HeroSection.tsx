@@ -17,7 +17,7 @@ export default function HeroSection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="space-y-8"
           >
-            <h1 className="text-3xl font-extrabold leading-tight text-black md:text-2xl lg:text-6xl dark:text-white">
+            <h1 className="text-3xl font-extrabold leading-tight text-black md:text-2xl lg:text-4xl dark:text-white">
               Deliver{" "}
               <span className="text-green-600">SMS Messages</span>
               <br />
@@ -30,7 +30,7 @@ export default function HeroSection() {
               messages at scale.
             </p>
 
-            <button className="rounded-md bg-green-700 px-8 py-4 text-sm font-regular text-white transition hover:bg-green-800">
+            <button className="rounded-md bg-green-700 px-7 py-3 text-sm font-regular text-white transition hover:bg-green-800 cursor-pointer">
               Get Started
             </button>
           </motion.div>
@@ -45,8 +45,8 @@ export default function HeroSection() {
             <Image
               src={heroImage}
               alt="SMS Marketing"
-              width={700}
-              height={500}
+              width={400}
+              height={300}
               priority
               className="h-auto w-full max-w-[650px]"
             />
