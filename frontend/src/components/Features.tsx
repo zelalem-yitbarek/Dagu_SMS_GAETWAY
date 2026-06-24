@@ -71,13 +71,13 @@ export default function FeatureSection() {
             Our <span className="text-green-600">Features</span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600 dark:text-gray-300">
+          <p className="mx-auto mt-1 max-w-2xl text-gray-600 dark:text-gray-300">
             Everything you need to send, manage, and monitor SMS communication.
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 mb-1">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
