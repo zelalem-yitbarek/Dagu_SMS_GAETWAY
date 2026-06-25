@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-6 text-3xl font-bold">Links</h3>
 
-            <ul className="space-y-4 text-gray-300">
+            <ul className="space-y-4 text-gray-300 text-sm">
               <li>
                 <Link
                   href="/"
@@ -81,7 +81,7 @@ export default function Footer() {
               Get in touch
             </h3>
 
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-4 text-gray-300 text-sm">
               <p>+251966813898 / +251920811869</p>
 
               <p>dagu@gmail.com</p>
