@@ -6,18 +6,18 @@ import heroImage from "../../public/Images.png";
 
 export default function HeroSection() {
   return (
-    <section className="w-full bg-white dark:bg-gray-950 transition-colors duration-300">
+    <section className="w-full bg-[#f3f3f3] dark:bg-gray-950 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid items-center gap-12 py-20 lg:grid-cols-2">
+        <div className="grid min-h-[80vh] items-center gap-12 lg:grid-cols-2">
 
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="space-y-8"
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: -40 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
           >
-            <h1 className="text-3xl font-extrabold leading-tight text-black md:text-2xl lg:text-4xl dark:text-white">
+            <h1 className="text-5xl font-extrabold leading-tight text-black md:text-6xl dark:text-white">
               Deliver{" "}
               <span className="text-green-600">SMS Messages</span>
               <br />
@@ -25,12 +25,12 @@ export default function HeroSection() {
               <span className="text-green-600">Customers</span>
             </h1>
 
-            <p className="max-w-xl text-md leading-relaxed text-gray-600 dark:text-gray-300">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-600 dark:text-gray-300">
               Integrate our SMS API to send OTPs, notifications, and bulk
               messages at scale.
             </p>
 
-            <button className="rounded-md bg-green-700 px-7 py-3 text-sm font-regular text-white transition hover:bg-green-800 cursor-pointer">
+            <button className="mt-10 rounded-md bg-green-600 px-10 py-3 text-base font-medium text-white transition hover:bg-green-700 cursor-pointer">
               Get Started
             </button>
           </motion.div>
@@ -45,8 +45,8 @@ export default function HeroSection() {
             <Image
               src={heroImage}
               alt="SMS Marketing"
-              width={400}
-              height={300}
+              width={650}
+              height={500}
               priority
               className="h-auto w-full max-w-[650px]"
             />
