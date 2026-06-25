@@ -2,6 +2,8 @@
 import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
 import FeatureSection from "@/components/Features";
+import Footer from "@/components/footer";
+
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/NavBar";
 import Trustedby from "@/components/Partners";
@@ -19,6 +21,7 @@ export default function Home() {
    <StatsCounter/>
    <FAQ/>
    <CTASection/>
+   <Footer/>
    </>
   );
 }
