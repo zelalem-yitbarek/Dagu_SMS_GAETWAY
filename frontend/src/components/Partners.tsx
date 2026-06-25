@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import ethAirlines from "../../public/Ethiopian_Airlines_Logo.svg.png";
-import AAU_MAIN from "../../public/AAU_Main_Logo.png";
+import AAU_MAIN from "../../public/AAU.png";
 import DSTV_LOGO from "../../public/DSTV_MAIN.png";
 import AwashBank from "../../public/Awash.png";
 import Heinken from "../../public/Heinken.png";
 import telebirr from "../../public/Telebir.png";
 import Safaricom from "../../public/SafariCom.png";
-import NileInsurance from "../../public/Nile_Insurance.png";
+import BunnaBank from "../../public/Bunna_bank.png";
 
 const logos = [
   { src: ethAirlines, alt: "Ethio Telecom" },
@@ -21,7 +21,7 @@ const logos = [
   { src: Heinken, alt: "EBS" },
   { src: telebirr, alt: "BGI" },
   { src: Safaricom, alt: "ENA" },
-  { src: NileInsurance, alt: "Commercial Bank of Ethiopia" },
+  { src: BunnaBank, alt: "Bunna Bank" },
 ];
 
 const doubledLogos = [...logos, ...logos];
