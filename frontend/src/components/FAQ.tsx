@@ -44,7 +44,7 @@ export default function FAQ(){
   return(
     <section className="py-20 px-6 bg-white dark:bg-zinc-950 transition-colors duration-300">
         <div className="max-w-5xl mx-auto">
-        <h2 className="text-center text-4xl font-bold mb-12 text-zinc-900 dark:text-white">
+        <h2 className="text-center text-3xl font-bold mb-12 text-zinc-900 dark:text-white">
           Frequently Asked Questions
         </h2>
         </div>
