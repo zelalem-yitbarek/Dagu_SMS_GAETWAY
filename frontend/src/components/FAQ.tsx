@@ -83,7 +83,7 @@ export default function FAQ(){
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="px-8 pb-6 text-zinc-600 dark:text-zinc-300 leading-7">
+                  <div className="px-8 pb-6 text-zinc-600 dark:text-zinc-300 leading-7 text-sm">
                     {faq.answer}
                   </div>
                 </div>
