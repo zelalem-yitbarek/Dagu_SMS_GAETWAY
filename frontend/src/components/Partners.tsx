@@ -33,7 +33,7 @@ const Trustedby = () => {
         Trusted By
       </h1>
 
-      <div className="w-full overflow-hidden bg-gray-50 py-1 dark:bg-gray-900 transition-colors duration-300 mt-4">
+      <div className="w-full overflow-hidden bg-white py-1 dark:bg-gray-900 transition-colors duration-300 mt-4">
         <motion.div
           className="flex w-max items-center gap-24"
           animate={{ x: ["0%", "-50%"] }}

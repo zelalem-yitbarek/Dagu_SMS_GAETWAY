@@ -1,15 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { SendHorizontal ,Code} from "lucide-react";
+import { motion } from "framer-motion";
+import { SendHorizontal, Code } from "lucide-react";
 
 export default function CTASection() {
   return (
     <section className="bg-gray-100 dark:bg-gray-950 py-20 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.2fr]">
-          {/* Left Side */}
-          <div>
+
+          {/* LEFT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
             <h2 className="mb-5 text-2xl font-bold text-gray-900 dark:text-white">
               Ready To Get Started
             </h2>
@@ -35,17 +42,24 @@ export default function CTASection() {
                 Contact Sales
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Side */}
-          <div className="grid gap-6 md:grid-cols-2">
+          {/* RIGHT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            className="grid gap-6 md:grid-cols-2"
+          >
             {/* Card 1 */}
-            <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-lg transition-colors">
+            <motion.div
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-lg"
+            >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-black dark:bg-white">
-                <SendHorizontal
-                  size={20}
-                  className="text-white dark:text-black"
-                />
+                <SendHorizontal size={20} className="text-white dark:text-black" />
               </div>
 
               <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
@@ -63,15 +77,16 @@ export default function CTASection() {
               >
                 Show Our Pricing
               </Link>
-            </div>
+            </motion.div>
 
             {/* Card 2 */}
-            <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-lg transition-colors">
+            <motion.div
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-lg"
+            >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-black dark:bg-white">
-                <Code
-                  size={20}
-                  className="text-white dark:text-black"
-                />
+                <Code size={20} className="text-white dark:text-black" />
               </div>
 
               <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
@@ -89,8 +104,9 @@ export default function CTASection() {
               >
                 Learn More
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
+
         </div>
       </div>
     </section>

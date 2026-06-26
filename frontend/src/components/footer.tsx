@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaTelegramPlane,
 } from "react-icons/fa";
+import Logo from '../../public/Dagu_Final_White.png'
 
 export default function Footer() {
   return (
@@ -18,9 +19,9 @@ export default function Footer() {
           {/* Logo & Description */}
           <div>
             <Image
-              src="/images/dagu-logo.png"
+              src={Logo}
               alt="DAGU"
-              width={140}
+              width={90}
               height={50}
               className="mb-6"
             />
