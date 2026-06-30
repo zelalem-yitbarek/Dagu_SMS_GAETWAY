@@ -88,7 +88,7 @@ export default function ContactSection() {
           </div>
 
           {/* Form */}
-          <div className="rounded-lg border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-900 p-8">
+          <div className="rounded-lg border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 text-sm">
             <form className="space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
                 <input
@@ -100,7 +100,7 @@ export default function ContactSection() {
                 <input
                   type="email"
                   placeholder="Email"
-                  className="h-14 rounded-md border border-gray-300 dark:border-gray-700 bg-transparent px-4 text-gray-900 dark:text-white outline-none transition focus:border-green-600"
+                  className="h-14 rounded-md border  border-gray-300 dark:border-gray-700 bg-transparent px-4 text-gray-900 dark:text-white outline-none transition focus:border-green-600"
                 />
               </div>
 
