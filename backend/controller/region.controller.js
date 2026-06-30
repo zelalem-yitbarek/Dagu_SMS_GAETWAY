@@ -1,5 +1,5 @@
 import Region from "../models/region.model.js";
-import ApiError from "../utils/ApiError.js";
+import ApiError from "../utils/api-error.js";
 
 export const createRegion = async (req, res, next) => {
   try {
