@@ -7,21 +7,21 @@ import Image from "next/image";
 import ethAirlines from "../../public/Ethiopian_Airlines_Logo.svg.png";
 import AAU_MAIN from "../../public/AAU.png";
 import DSTV_LOGO from "../../public/DSTV_MAIN.png";
-import AwashBank from "../../public/Awash.png";
+import EEU from "../../public/EEU_LOGO.png";
 import Heinken from "../../public/Heinken.png";
 import telebirr from "../../public/Telebir.png";
 import Safaricom from "../../public/SafariCom.png";
-import BunnaBank from "../../public/Bunna_bank.png";
+import CBE from "../../public/CBE Logo.png";
 
 const logos = [
   { src: ethAirlines, alt: "Ethio Telecom" },
   { src: AAU_MAIN, alt: "Safaricom" },
   { src: DSTV_LOGO, alt: "Arts" },
-  { src: AwashBank, alt: "EBC" },
+  { src: EEU, alt: "EEU" },
   { src: Heinken, alt: "EBS" },
   { src: telebirr, alt: "BGI" },
   { src: Safaricom, alt: "ENA" },
-  { src: BunnaBank, alt: "Bunna Bank" },
+  { src: CBE, alt: "CBE LOGO" },
 ];
 
 const doubledLogos = [...logos, ...logos];
