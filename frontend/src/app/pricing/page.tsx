@@ -191,7 +191,7 @@ export default function PricingSection() {
               ✕
             </button>
 
-            <h2 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-6 text-center text-1xl font-bold text-gray-900 dark:text-white">
               Checkout
             </h2>
 
@@ -202,7 +202,7 @@ export default function PricingSection() {
                   Selected Package
                 </p>
 
-                <h3 className="mt-1 text-lg font-bold text-green-700 dark:text-green-300">
+                <h3 className="mt-1 text-md font-bold text-green-700 dark:text-green-300">
                   {selectedPlan.name}
                 </h3>
 
