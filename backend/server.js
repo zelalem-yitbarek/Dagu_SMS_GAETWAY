@@ -5,7 +5,8 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 
 import regionRoutes from "./route/region.route.js";
-
+import packageRoutes from "./route/package.route.js";
+import cityRoutes from "./route/city.route.js";
 dotenv.config();
 
 const app = express();
@@ -25,6 +26,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/regions", regionRoutes);
+app.use("/api/v1/packages", packageRoutes);
+app.use("/api/v1/cities", cityRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)

@@ -12,5 +12,17 @@ const packageSchema = new mongoose.Schema({
         required:true,
         trim:true,
         unique:true
+    },
+    description:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    status:{
+        type:String,
+       enum:["active","inactive","blocked"],
+       default:"active"
     }
-})
+},{timestamps:true});
+const Packages = mongoose.model('packages',packageSchema);
+export default Packages;
