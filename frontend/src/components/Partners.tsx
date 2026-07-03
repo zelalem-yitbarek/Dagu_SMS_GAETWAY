@@ -5,18 +5,19 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import ethAirlines from "../../public/Ethiopian_Airlines_Logo.svg.png";
-import AAU_MAIN from "../../public/AAU.png";
+import TotalEnergies from "../../public/TotalEnergies.png";
 import DSTV_LOGO from "../../public/DSTV_MAIN.png";
 import EEU from "../../public/EEU_LOGO.png";
 import Heinken from "../../public/Heinken.png";
 import telebirr from "../../public/Telebir.png";
 import Safaricom from "../../public/SafariCom.png";
 import CBE from "../../public/CBE Logo.png";
+import Mpesa from "../../public/mpesa.png"
 
 const logos = [
   { src: ethAirlines, alt: "Ethio Telecom" },
-  { src: AAU_MAIN, alt: "Safaricom" },
-  { src: DSTV_LOGO, alt: "Arts" },
+  { src: TotalEnergies, alt: "TotalEnergies" },
+  { src: Mpesa, alt: "Mpesa" },
   { src: EEU, alt: "EEU" },
   { src: Heinken, alt: "EBS" },
   { src: telebirr, alt: "BGI" },

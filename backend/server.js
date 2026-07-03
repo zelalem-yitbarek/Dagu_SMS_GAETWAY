@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import regionRoutes from "./route/region.route.js";
 import packageRoutes from "./route/package.route.js";
 import cityRoutes from "./route/city.route.js";
+import BlogRouter from "./route/blog.route.js";
 dotenv.config();
 
 const app = express();
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/regions", regionRoutes);
 app.use("/api/v1/packages", packageRoutes);
 app.use("/api/v1/cities", cityRoutes);
+app.use("/api/v1/blog", BlogRouter);
 
 mongoose
   .connect(process.env.MONGO_URI)
