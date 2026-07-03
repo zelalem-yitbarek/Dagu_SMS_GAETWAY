@@ -57,6 +57,10 @@ export default function Navbar() {
               Developers
             </Link>
 
+            <Link href="/blogs" className="text-sm font-medium hover:text-green-600 transition-colors">
+              Blogs
+            </Link>
+
             <Link href="/contact" className="text-sm font-medium hover:text-green-600 transition-colors">
               Contact Us
             </Link>
@@ -85,6 +89,7 @@ export default function Navbar() {
               <Link href="/" className="text-sm">Home</Link>
               <Link href="/pricing" className="text-sm">Pricing</Link>
               <Link href="/developers" className="text-sm">Developers</Link>
+              <Link href="/blogs" className="text-sm">Blogs</Link>
               <Link href="/contact" className="text-sm">Contact Us</Link>
 
               <Link
