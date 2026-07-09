@@ -7,7 +7,7 @@ import Image from "next/image";
 import ethAirlines from "../../public/Ethiopian_Airlines_Logo.svg.png";
 import TotalEnergies from "../../public/TotalEnergies.png";
 import DSTV_LOGO from "../../public/DSTV_MAIN.png";
-import EEU from "../../public/EEU_LOGO.png";
+import EEU from "../../public/teleCom.png";
 import Heinken from "../../public/Heinken.png";
 import telebirr from "../../public/Telebir.png";
 import Safaricom from "../../public/SafariCom.png";
