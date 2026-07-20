@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -38,9 +39,11 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-6"
         >
+          <Link href="/register">
           <button className="rounded-md bg-green-600 px-10 py-3 text-base font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-green-700">
             Get Started
           </button>
+          </Link>
         </motion.div>
       </div>
     </section>
