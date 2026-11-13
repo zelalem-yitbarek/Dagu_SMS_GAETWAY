@@ -180,18 +180,25 @@ export default function PricingSection() {
 
       {/* Checkout Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={(e) => e.target === e.currentTarget && closeModal()}
+        >
           <div className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl dark:bg-gray-900">
 
             {/* Close */}
             <button
+              type="button"
               onClick={closeModal}
+              aria-label="Close checkout"
               className="absolute right-4 top-4 text-xl text-gray-500 hover:text-black dark:hover:text-white"
             >
               ✕
             </button>
 
-            <h2 className="mb-6 text-center text-1xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-6 text-center text-xl font-bold text-gray-900 dark:text-white">
               Checkout
             </h2>
 
@@ -219,7 +226,9 @@ export default function PricingSection() {
               </label>
 
               <input
-                type="text"
+                type="tel"
+                inputMode="numeric"
+                autoComplete="tel"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="09XXXXXXXX"
@@ -237,6 +246,9 @@ export default function PricingSection() {
                 {paymentMethods.map((method) => (
                   <button
                     key={method.value}
+                    type="button"
+                    aria-label={method.name}
+                    aria-pressed={selectedPayment === method.value}
                     onClick={() => setSelectedPayment(method.value)}
                     className={`flex h-20 items-center justify-center rounded-lg border p-2 transition ${
                       selectedPayment === method.value

@@ -83,9 +83,15 @@ export default function Footer() {
             </h3>
 
             <div className="space-y-4 text-gray-300 text-sm">
-              <p>+251966813898 / +251920811869</p>
+              <p>
+                <a href="tel:+251966813898" className="transition hover:text-white">+251 966 813 898</a>
+                {" / "}
+                <a href="tel:+251920811869" className="transition hover:text-white">+251 920 811 869</a>
+              </p>
 
-              <p>dagu@gmail.com</p>
+              <p>
+                <a href="mailto:dagu@gmail.com" className="transition hover:text-white">dagu@gmail.com</a>
+              </p>
 
               <p>Addis Ababa, Ethiopia</p>
             </div>

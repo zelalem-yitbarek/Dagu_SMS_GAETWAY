@@ -6,8 +6,7 @@ import Image from "next/image";
 
 import ethAirlines from "../../public/Ethiopian_Airlines_Logo.svg.png";
 import TotalEnergies from "../../public/TotalEnergies.png";
-import DSTV_LOGO from "../../public/DSTV_MAIN.png";
-import EEU from "../../public/teleCom.png";
+import ethioTelecom from "../../public/teleCom.png";
 import Heinken from "../../public/Heinken.png";
 import telebirr from "../../public/Telebir.png";
 import Safaricom from "../../public/SafariCom.png";
@@ -15,28 +14,28 @@ import CBE from "../../public/CBE Logo.png";
 import Mpesa from "../../public/mpesa.png"
 
 const logos = [
-  { src: ethAirlines, alt: "Ethio Telecom" },
+  { src: ethAirlines, alt: "Ethiopian Airlines" },
   { src: TotalEnergies, alt: "TotalEnergies" },
-  { src: Mpesa, alt: "Mpesa" },
-  { src: EEU, alt: "EEU" },
-  { src: Heinken, alt: "EBS" },
-  { src: telebirr, alt: "BGI" },
-  { src: Safaricom, alt: "ENA" },
-  { src: CBE, alt: "CBE LOGO" },
+  { src: Mpesa, alt: "M-Pesa" },
+  { src: ethioTelecom, alt: "Ethio Telecom" },
+  { src: Heinken, alt: "Heineken" },
+  { src: telebirr, alt: "telebirr" },
+  { src: Safaricom, alt: "Safaricom" },
+  { src: CBE, alt: "Commercial Bank of Ethiopia" },
 ];
 
 const doubledLogos = [...logos, ...logos];
 
 const Trustedby = () => {
   return (
-    <section className="w-full py-12 text-center bg-white dark:bg-gray-950 transition-colors duration-300">
-      <h1 className="mb-10 text-2xl font-bold text-gray-900 dark:text-white md:text-2xl">
-        Trusted By
-      </h1>
+    <section className="w-full border-b border-gray-100 bg-white py-14 text-center transition-colors duration-300 dark:border-gray-900 dark:bg-gray-950">
+      <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+        Trusted by leading organizations
+      </h2>
 
-      <div className="w-full overflow-hidden bg-white py-1 dark:bg-gray-900 transition-colors duration-300 mt-4">
+      <div className="marquee-mask mt-8 w-full overflow-hidden">
         <motion.div
-          className="flex w-max items-center gap-24"
+          className="flex w-max items-center gap-16 md:gap-20"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             x: {
@@ -50,13 +49,15 @@ const Trustedby = () => {
           {doubledLogos.map((logo, index) => (
             <div
               key={index}
-              className="relative flex h-28 w-28 flex-shrink-0 items-center justify-center"
+              aria-hidden={index >= logos.length}
+              className="relative flex h-20 w-28 flex-shrink-0 items-center justify-center"
             >
               <Image
                 src={logo.src}
-                alt={logo.alt}
+                alt={index >= logos.length ? "" : logo.alt}
                 fill
-                className="object-contain p-2 transition duration-300 dark:brightness-90 dark:contrast-110"
+                sizes="112px"
+                className="object-contain p-2 opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 dark:brightness-90"
               />
             </div>
           ))}

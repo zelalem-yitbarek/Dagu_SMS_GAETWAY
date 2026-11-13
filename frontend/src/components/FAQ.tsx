@@ -42,35 +42,40 @@ export default function FAQ(){
   };
 
   return(
-    <section className="py-20 px-6 bg-white dark:bg-zinc-950 transition-colors duration-300">
+    <section id="faq" className="py-24 px-6 bg-white dark:bg-gray-950 transition-colors duration-300">
         <div className="max-w-5xl mx-auto">
-        <h2 className="text-center text-3xl font-bold mb-12 text-zinc-900 dark:text-white">
+        <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-green-600">
+          FAQ
+        </p>
+        <h2 className="mt-3 text-center text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">
           Frequently <span className="text-green-600">Asked</span> Questions
         </h2>
         </div>
-        <div className="space-y-6 max-w-3xl mx-auto">
+        <div className="space-y-4 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-zinc-300 dark:border-zinc-700 overflow-hidden bg-white dark:bg-zinc-900"
+              className={`rounded-2xl border overflow-hidden transition-colors ${openIndex === index ? "border-green-300 bg-green-50/40 dark:border-green-800 dark:bg-gray-900" : "border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"}`}
             >
               <button
+                type="button"
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between px-8 py-6 text-left"
+                aria-expanded={openIndex === index}
+                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left md:px-8"
               >
-                <span className="text-md font-medium text-zinc-900 dark:text-white">
+                <span className="text-lg font-semibold text-gray-900 dark:text-white">
                   {faq.question}
                 </span>
 
                 {openIndex === index ? (
                   <Minus
-                    size={24}
-                    className="text-green-600 dark:text-green-400"
+                    size={22}
+                    className="shrink-0 text-green-600 dark:text-green-400"
                   />
                 ) : (
                   <Plus
-                    size={24}
-                    className="text-green-600 dark:text-green-400"
+                    size={22}
+                    className="shrink-0 text-green-600 dark:text-green-400"
                   />
                 )}
               </button>
@@ -83,7 +88,7 @@ export default function FAQ(){
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="px-8 pb-6 text-zinc-600 dark:text-zinc-300 leading-7 text-sm">
+                  <div className="px-6 pb-6 text-gray-600 dark:text-gray-300 leading-7 text-base md:px-8">
                     {faq.answer}
                   </div>
                 </div>

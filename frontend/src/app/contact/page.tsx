@@ -2,13 +2,19 @@
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/NavBar";
-import {
-  Mail,
-  Phone,
-  MapPinned,
-} from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { Mail, Phone, MapPinned, CheckCircle2 } from "lucide-react";
 
 export default function ContactSection() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // TODO: send the message to the backend once a contact endpoint exists
+    e.currentTarget.reset();
+    setSubmitted(true);
+  };
+
   return (
     <>
     <Navbar/>
@@ -41,9 +47,9 @@ export default function ContactSection() {
                     Email
                   </h3>
 
-                  <p className="text-gray-700 dark:text-gray-300  text-sm">
+                  <a href="mailto:dagu@gmail.com" className="text-gray-700 dark:text-gray-300 text-sm hover:text-green-600">
                     dagu@gmail.com
-                  </p>
+                  </a>
                 </div>
               </div>
             </div>
@@ -61,7 +67,9 @@ export default function ContactSection() {
                   </h3>
 
                   <p className="text-gray-700 dark:text-gray-300 text-sm">
-                    +251 911 123 456
+                    <a href="tel:+251966813898" className="hover:text-green-600">+251 966 813 898</a>
+                    {" / "}
+                    <a href="tel:+251920811869" className="hover:text-green-600">+251 920 811 869</a>
                   </p>
                 </div>
               </div>
@@ -75,11 +83,11 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-green-600">
+                  <h3 className="font-semibold text-green-600 text-sm">
                     Head Office
                   </h3>
 
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-gray-700 dark:text-gray-300 text-sm">
                     Addis Ababa, Ethiopia
                   </p>
                 </div>
@@ -89,16 +97,28 @@ export default function ContactSection() {
 
           {/* Form */}
           <div className="rounded-lg border border-gray-300 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 text-sm">
-            <form className="space-y-6">
+            {submitted && (
+              <div role="status" className="mb-6 flex items-center gap-2 rounded-md border border-green-200 bg-green-50 p-4 text-green-700 dark:border-green-800 dark:bg-green-900/20 dark:text-green-300">
+                <CheckCircle2 size={18} />
+                Thanks! Your message has been received. We&apos;ll get back to you soon.
+              </div>
+            )}
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid gap-6 md:grid-cols-2">
                 <input
                   type="text"
+                  name="fullName"
+                  autoComplete="name"
+                  required
                   placeholder="Full Name"
                   className="h-14 rounded-md border border-gray-300 dark:border-gray-700 bg-transparent px-4 text-gray-900 dark:text-white outline-none transition focus:border-green-600"
                 />
 
                 <input
                   type="email"
+                  name="email"
+                  autoComplete="email"
+                  required
                   placeholder="Email"
                   className="h-14 rounded-md border  border-gray-300 dark:border-gray-700 bg-transparent px-4 text-gray-900 dark:text-white outline-none transition focus:border-green-600"
                 />
@@ -106,19 +126,23 @@ export default function ContactSection() {
 
               <input
                 type="text"
+                name="subject"
+                required
                 placeholder="Subject"
                 className="h-14 w-full rounded-md border border-gray-300 dark:border-gray-700 bg-transparent px-4 text-gray-900 dark:text-white outline-none transition focus:border-green-600"
               />
 
               <textarea
                 rows={8}
+                name="message"
+                required
                 placeholder="Message"
                 className="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-transparent p-4 text-gray-900 dark:text-white outline-none transition focus:border-green-600"
               />
 
               <button
                 type="submit"
-                className="w-full rounded-md bg-green-600 py-3 text-lg font-medium text-white transition hover:bg-green-700 text-sm"
+                className="w-full rounded-md bg-green-600 py-3 text-sm font-medium text-white transition hover:bg-green-700"
               >
                 Send
               </button>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {User,Mail,Phone,Lock,Eye,EyeOff,} from "lucide-react";
 import Image from "next/image";
+import ThemeToggle from "@/components/ThemeToggle";
 import DaguLogo from '../../../public/Dagu_Final.png'
 
 export default function RegisterPage() {
@@ -12,7 +13,8 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <section className="min-h-screen bg-gray-100 dark:bg-gray-950 transition-colors duration-300 flex items-center justify-center px-6 py-10">
+    <section className="relative min-h-screen bg-gray-100 dark:bg-gray-950 transition-colors duration-300 flex items-center justify-center px-6 py-10">
+      <ThemeToggle className="absolute right-6 top-6" />
       <motion.div
         initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
@@ -37,12 +39,12 @@ export default function RegisterPage() {
   />
           </motion.h2>
 
-          <h1 className="mt-5 text-1xl font-medium text-black dark:text-white">
-            You are almost new
+          <h1 className="mt-5 text-xl font-medium text-black dark:text-white">
+            Create your account
           </h1>
 
           <p className="mt-3 text-sm font-light text-gray-600 dark:text-gray-300">
-            Please Register Here
+            Start sending SMS in minutes
           </p>
         </div>
 
@@ -57,6 +59,9 @@ export default function RegisterPage() {
 
             <input
               type="text"
+              name="fullName"
+              autoComplete="name"
+              required
               placeholder="Full Name"
               className="w-full text-sm rounded-lg border border-gray-300 bg-white py-3 pl-12 pr-4 text-black outline-none transition-all focus:border-green-500 focus:ring-2 focus:ring-green-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
             />
@@ -71,6 +76,9 @@ export default function RegisterPage() {
 
             <input
               type="email"
+              name="email"
+              autoComplete="email"
+              required
               placeholder="Email Address"
               className="w-full text-sm rounded-lg border border-gray-300 bg-white py-3 pl-12 pr-4 text-black outline-none transition-all focus:border-green-500 focus:ring-2 focus:ring-green-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
             />
@@ -85,6 +93,9 @@ export default function RegisterPage() {
 
             <input
               type="tel"
+              name="phone"
+              autoComplete="tel"
+              required
               placeholder="Phone Number"
               className="w-full text-sm rounded-lg border border-gray-300 bg-white py-3 pl-12 pr-4 text-black outline-none transition-all focus:border-green-500 focus:ring-2 focus:ring-green-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
             />
@@ -99,6 +110,10 @@ export default function RegisterPage() {
 
             <input
               type={showPassword ? "text" : "password"}
+              name="password"
+              autoComplete="new-password"
+              required
+              minLength={8}
               placeholder="Password"
               className="w-full text-sm rounded-lg border border-gray-300 bg-white py-3 pl-12 pr-12 text-black outline-none transition-all focus:border-green-500 focus:ring-2 focus:ring-green-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
             />
@@ -106,6 +121,7 @@ export default function RegisterPage() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-green-600"
             >
               {showPassword ? (
@@ -125,6 +141,9 @@ export default function RegisterPage() {
 
             <input
               type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              autoComplete="new-password"
+              required
               placeholder="Confirm Password"
               className="w-full  text-sm rounded-lg border border-gray-300 bg-white py-3 pl-12 pr-12 text-black outline-none transition-all focus:border-green-500 focus:ring-2 focus:ring-green-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
             />
@@ -134,6 +153,7 @@ export default function RegisterPage() {
               onClick={() =>
                 setShowConfirmPassword(!showConfirmPassword)
               }
+              aria-label={showConfirmPassword ? "Hide password" : "Show password"}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-green-600"
             >
               {showConfirmPassword ? (
@@ -158,7 +178,7 @@ export default function RegisterPage() {
         {/* Login */}
         <div className="mt-8 text-center">
           <p className="text-gray-600 dark:text-gray-400  text-sm">
-            Already have account?{" "}
+            Already have an account?{" "}
             <Link
               href="/login"
               className="font-semibold text-green-600 hover:text-green-700"

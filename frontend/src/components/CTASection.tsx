@@ -6,7 +6,7 @@ import { SendHorizontal, Code } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="bg-gray-100 dark:bg-gray-950 py-20 transition-colors duration-300">
+    <section className="bg-gray-50 dark:bg-gray-950 py-24 transition-colors duration-300 border-t border-gray-100 dark:border-gray-900">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.2fr]">
 
@@ -17,12 +17,12 @@ export default function CTASection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <h2 className="mb-5 text-2xl font-bold text-gray-900 dark:text-white">
-              Ready To Get Started
+            <h2 className="mb-5 text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+              Ready to get <span className="text-green-600">started</span>?
             </h2>
 
-            <p className="max-w-lg text-sm leading-7 text-gray-700 dark:text-gray-300">
-              Empower your business with Dagu's SMS Gateway. Reach customers
+            <p className="max-w-lg text-lg leading-8 text-gray-700 dark:text-gray-300">
+              Empower your business with Dagu&apos;s SMS Gateway. Reach customers
               instantly, send bulk SMS campaigns, and manage communication
               seamlessly. Contact us today to get started.
             </p>
@@ -30,14 +30,14 @@ export default function CTASection() {
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <Link
                 href="/register"
-                className="rounded-lg bg-green-700 px-8 py-3 text-sm font-medium text-white transition hover:bg-green-800"
+                className="rounded-md bg-green-600 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-green-600/25 transition hover:bg-green-700"
               >
                 Register Here
               </Link>
 
               <Link
                 href="/contact"
-                className="text-sm font-medium text-gray-800 transition hover:text-green-700 dark:text-gray-300 dark:hover:text-green-500"
+                className="text-base font-semibold text-gray-800 transition hover:text-green-700 dark:text-gray-300 dark:hover:text-green-500"
               >
                 Contact Sales
               </Link>
@@ -99,7 +99,7 @@ export default function CTASection() {
               </p>
 
               <Link
-                href="/docs"
+                href="/developers"
                 className="text-sm font-medium text-green-700 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400"
               >
                 Learn More

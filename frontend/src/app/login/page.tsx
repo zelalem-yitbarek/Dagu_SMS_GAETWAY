@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Mail,
   Lock,
@@ -9,16 +9,18 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import logo from "../../../public/Dagu_Final.png";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [showDemoAlert, setShowDemoAlert] = useState(true);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950 px-6 py-10">
+    <section className="relative min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950 px-6 py-10">
+      <ThemeToggle className="absolute right-6 top-6" />
       <div className="w-full max-w-sm rounded-2xl border border-gray-200 bg-white p-6 shadow-xl dark:border-gray-800 dark:bg-gray-900">
         {/* Logo */}
         <div className="flex flex-col items-center text-center">
@@ -41,28 +43,28 @@ export default function LoginPage() {
 
           {/* Demo Credentials */}
           {showDemoAlert && (
-            <div className="mt-5 w-full rounded-xl border border-green-200 bg-green-50 p-4 text-left shadow-sm">
+            <div className="mt-5 w-full rounded-xl border border-green-200 bg-green-50 p-4 text-left shadow-sm dark:border-green-800 dark:bg-green-900/20">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-sm font-semibold text-green-700">
+                  <h3 className="text-sm font-semibold text-green-700 dark:text-green-300">
                     Demo Login Credentials
                   </h3>
 
                   <div className="mt-3 space-y-2">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-semibold text-gray-700">
+                      <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
                         Email:
                       </span>
-                      <code className="rounded bg-white px-2 py-1 text-xs font-medium text-gray-800">
+                      <code className="rounded bg-white px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-100">
                         admin@email.com
                       </code>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-semibold text-gray-700">
+                      <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
                         Password:
                       </span>
-                      <code className="rounded bg-white px-2 py-1 text-xs font-medium text-gray-800">
+                      <code className="rounded bg-white px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-100">
                         Admin1234
                       </code>
                     </div>
@@ -72,7 +74,8 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowDemoAlert(false)}
-                  className="rounded p-1 text-green-700 transition hover:bg-green-100"
+                  aria-label="Dismiss demo credentials"
+                  className="rounded p-1 text-green-700 transition hover:bg-green-100 dark:text-green-300 dark:hover:bg-green-900/40"
                 >
                   <X size={16} />
                 </button>
@@ -92,6 +95,8 @@ export default function LoginPage() {
 
             <input
               type="email"
+              name="email"
+              autoComplete="email"
               placeholder="Email Address"
               required
               className="w-full rounded-lg border border-gray-300 bg-white py-3 pl-11 pr-4 text-sm text-black outline-none transition-all focus:border-green-500 focus:ring-2 focus:ring-green-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
@@ -107,6 +112,8 @@ export default function LoginPage() {
 
             <input
               type={showPassword ? "text" : "password"}
+              name="password"
+              autoComplete="current-password"
               placeholder="Password"
               required
               className="w-full rounded-lg border border-gray-300 bg-white py-3 pl-11 pr-11 text-sm text-black outline-none transition-all focus:border-green-500 focus:ring-2 focus:ring-green-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
@@ -115,6 +122,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 transition hover:text-green-600"
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}

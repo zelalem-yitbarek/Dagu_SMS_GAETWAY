@@ -9,8 +9,6 @@ import Navbar from "@/components/NavBar";
 import Trustedby from "@/components/Partners";
 import StatsCounter from "@/components/StasCounter";
 
-import Image from "next/image";
-
 export default function Home() {
   return (
    <>

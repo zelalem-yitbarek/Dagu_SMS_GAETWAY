@@ -25,19 +25,19 @@ const stats = [
 export default function StatsCounter() {
   const { ref, inView } = useInView({
     threshold: 0.3,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   return (
     <section
       ref={ref}
-      className="bg-white dark:bg-black transition-colors duration-300 py-20"
+      className="bg-green-700 py-16 transition-colors duration-300 dark:bg-green-900"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 gap-40 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:divide-x md:divide-white/20">
           {stats.map((item, index) => (
             <div key={index} className="text-center">
-              <h2 className="text-4xl md:text-3xl font-bold text-black dark:text-white">
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
                 {inView ? (
                   <CountUp
                     start={0}
@@ -50,7 +50,7 @@ export default function StatsCounter() {
                 )}
               </h2>
 
-              <p className="mt-3 text-md text-gray-700 dark:text-gray-300">
+              <p className="mt-2 text-base font-medium text-green-100">
                 {item.label}
               </p>
             </div>

@@ -2,20 +2,37 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 import Logo from "../../public/Dagu_Final.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/developers", label: "Developers" },
+    { href: "/blogs", label: "Blogs" },
+    { href: "/contact", label: "Contact Us" },
+  ];
+
+  const linkClass = (href: string) =>
+    `text-[15px] font-medium transition-colors hover:text-green-600 ${
+      pathname === href ? "text-green-600" : "text-gray-700 dark:text-gray-300"
+    }`;
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -45,52 +62,53 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-10">
-            <Link href="/" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Home
-            </Link>
-
-            <Link href="/pricing" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Pricing
-            </Link>
-
-            <Link href="/developers" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Developers
-            </Link>
-
-            <Link href="/blogs" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Blogs
-            </Link>
-
-            <Link href="/contact" className="text-sm font-medium hover:text-green-600 transition-colors">
-              Contact Us
-            </Link>
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={pathname === l.href ? "page" : undefined}
+                className={linkClass(l.href)}
+              >
+                {l.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* Login Button */}
-          <div className="hidden md:block">
+          {/* Theme toggle + Login */}
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="/login"
-              className="rounded-md bg-green-700 px-5 py-2 text-sm font-medium text-white transition hover:bg-green-800"
+              className="rounded-md bg-green-600 px-6 py-2.5 text-[15px] font-semibold text-white transition hover:bg-green-700"
             >
               Login
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          {/* Mobile: theme toggle + menu button */}
+          <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
           <div className="border-t py-5 md:hidden dark:border-zinc-800">
-            <nav className="flex flex-col gap-4">
-              <Link href="/" className="text-sm">Home</Link>
-              <Link href="/pricing" className="text-sm">Pricing</Link>
-              <Link href="/developers" className="text-sm">Developers</Link>
-              <Link href="/blogs" className="text-sm">Blogs</Link>
-              <Link href="/contact" className="text-sm">Contact Us</Link>
+            <nav className="flex flex-col gap-4" onClick={() => setIsOpen(false)}>
+              {links.map((l) => (
+                <Link key={l.href} href={l.href} className={linkClass(l.href)}>
+                  {l.label}
+                </Link>
+              ))}
 
               <Link
                 href="/login"

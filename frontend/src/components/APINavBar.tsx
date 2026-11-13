@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 import Logo from "../../public/Dagu_Final.png";
 
 export default function Navbar() {
@@ -30,6 +31,8 @@ export default function Navbar() {
             <ArrowLeft size={18} />
             Back to Home Page
           </Link>
+
+          <ThemeToggle className="ml-auto" />
         </div>
       </div>
     </header>
