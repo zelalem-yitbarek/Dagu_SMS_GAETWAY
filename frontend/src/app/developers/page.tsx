@@ -3,6 +3,7 @@ import { KeyRound, Send, ShieldCheck } from "lucide-react";
 
 import Navbar from "@/components/APINavBar";
 import Footer from "@/components/footer";
+import ApiDocs from "@/components/ApiDocs";
 
 const steps = [
   {
@@ -34,8 +35,8 @@ export default function DevelopersPage() {
               Developer <span className="text-green-600">Documentation</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-600 dark:text-gray-400">
-              Integrate the Dagu SMS Gateway into your application. Full API
-              reference is coming soon. In the meantime, here&apos;s how to get started.
+              Integrate the Dagu SMS Gateway into your application. Here&apos;s how
+              to get started, followed by the API reference.
             </p>
           </div>
 
@@ -56,6 +57,8 @@ export default function DevelopersPage() {
               </div>
             ))}
           </div>
+
+          <ApiDocs />
 
           <div className="mt-14 text-center">
             <Link

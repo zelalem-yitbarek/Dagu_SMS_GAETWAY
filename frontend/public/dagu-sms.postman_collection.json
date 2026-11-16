@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "Dagu SMS API",
+    "description": "Dagu SMS Gateway API. Set the `baseUrl` and `apiKey` collection variables before sending.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3001" },
+    { "key": "apiKey", "value": "YOUR_API_KEY" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{apiKey}}", "type": "string" }]
+  },
+  "item": [
+    {
+      "name": "Create SMS",
+      "request": {
+        "method": "POST",
+        "description": "Creates an SMS message and queues it for delivery to a single recipient.",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"to\": \"+251911234567\",\n  \"message\": \"Your Dagu verification code is 482913\",\n  \"senderName\": \"DAGU\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/dagusms/v1/create",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "dagusms", "v1", "create"]
+        }
+      },
+      "response": [
+        {
+          "name": "201 Created",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"+251911234567\",\n  \"message\": \"Your Dagu verification code is 482913\",\n  \"senderName\": \"DAGU\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/dagusms/v1/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dagusms", "v1", "create"]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"success\": true,\n  \"message\": \"SMS created and queued for delivery\",\n  \"data\": {\n    \"id\": \"6741f2c9a8b3e5d1c0f9a123\",\n    \"to\": \"+251911234567\",\n    \"senderName\": \"DAGU\",\n    \"message\": \"Your Dagu verification code is 482913\",\n    \"status\": \"queued\",\n    \"segments\": 1,\n    \"createdAt\": \"2026-11-16T09:30:00.000Z\"\n  }\n}"
+        },
+        {
+          "name": "400 Bad Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"Your Dagu verification code is 482913\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/dagusms/v1/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dagusms", "v1", "create"]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"success\": false,\n  \"message\": \"Recipient phone number is required\"\n}"
+        },
+        {
+          "name": "401 Unauthorized",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"+251911234567\",\n  \"message\": \"Your Dagu verification code is 482913\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/dagusms/v1/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dagusms", "v1", "create"]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"success\": false,\n  \"message\": \"Invalid or missing API key\"\n}"
+        }
+      ]
+    }
+  ]
+}
