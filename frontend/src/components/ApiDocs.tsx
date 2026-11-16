@@ -142,7 +142,7 @@ function CopyButton({ text }: { text: string }) {
   );
 }
 
-function CodeBlock({
+export function CodeBlock({
   code,
   header,
 }: {
@@ -197,7 +197,7 @@ export default function ApiDocs() {
   return (
     <section
       id="create-sms"
-      className="mt-16 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8 dark:border-gray-800 dark:bg-gray-900"
+      className="scroll-mt-28 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8 dark:border-gray-800 dark:bg-gray-900"
     >
       {/* Title */}
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -213,9 +213,9 @@ export default function ApiDocs() {
               Preview
             </span>
           </div>
-          <h2 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">
+          <h3 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">
             Create &amp; send an SMS
-          </h2>
+          </h3>
           <p className="mt-2 max-w-2xl text-gray-600 dark:text-gray-400">
             Creates an SMS message and queues it for delivery to a single
             recipient. Use it for OTPs, alerts, and notifications.
@@ -232,13 +232,13 @@ export default function ApiDocs() {
         </a>
       </div>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-2">
+      <div className="mt-10 grid gap-10 xl:grid-cols-2">
         {/* Left: reference */}
         <div className="space-y-8">
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Headers
-            </h3>
+            </h4>
             <div className="divide-y divide-gray-200 rounded-lg border border-gray-200 dark:divide-gray-800 dark:border-gray-800">
               {requestHeaders.map((h) => (
                 <div key={h.key} className="flex flex-wrap items-center justify-between gap-2 px-4 py-3">
@@ -250,9 +250,9 @@ export default function ApiDocs() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Body parameters
-            </h3>
+            </h4>
             <div className="divide-y divide-gray-200 rounded-lg border border-gray-200 dark:divide-gray-800 dark:border-gray-800">
               {bodyParams.map((p) => (
                 <div key={p.name} className="px-4 py-3">
@@ -272,9 +272,9 @@ export default function ApiDocs() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Request body (JSON)
-            </h3>
+            </h4>
             <CodeBlock
               code={requestBody}
               header={<span className="px-1 text-xs font-medium text-gray-400">application/json</span>}
@@ -285,9 +285,9 @@ export default function ApiDocs() {
         {/* Right: code + responses */}
         <div className="space-y-8">
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Node.js example
-            </h3>
+            </h4>
             <CodeBlock
               code={nodeExamples[lang]}
               header={
@@ -300,9 +300,9 @@ export default function ApiDocs() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
               Responses (JSON)
-            </h3>
+            </h4>
             <CodeBlock
               code={responses[resIdx].body}
               header={responses.map((r, i) => (
