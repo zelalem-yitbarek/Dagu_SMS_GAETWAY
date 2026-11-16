@@ -42,7 +42,7 @@ export default function FAQ(){
   };
 
   return(
-    <section id="faq" className="py-24 px-6 bg-white dark:bg-gray-950 transition-colors duration-300">
+    <section id="faq" className="scroll-mt-20 py-24 px-6 bg-white dark:bg-gray-950 transition-colors duration-300">
         <div className="max-w-5xl mx-auto">
         <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-green-600">
           FAQ

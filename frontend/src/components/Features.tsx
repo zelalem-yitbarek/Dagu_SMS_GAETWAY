@@ -57,7 +57,7 @@ const features = [
 
 export default function FeatureSection() {
   return (
-    <section id="features" className="w-full bg-gray-50 py-24 transition-colors duration-300 dark:bg-gray-950">
+    <section id="features" className="scroll-mt-20 w-full bg-gray-50 py-24 transition-colors duration-300 dark:bg-gray-950">
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <motion.div

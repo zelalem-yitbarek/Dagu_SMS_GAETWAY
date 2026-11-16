@@ -20,7 +20,10 @@ const nav: DocsNavGroup[] = [
   },
   {
     title: "Endpoints",
-    items: [{ id: "create-sms", label: "Create SMS", method: "POST" }],
+    items: [
+      { id: "create-sms", label: "Create SMS", method: "POST" },
+      { id: "verify-sms", label: "Verify SMS", method: "POST" },
+    ],
   },
   {
     title: "Reference",
@@ -42,7 +45,7 @@ const steps = [
   {
     icon: ShieldCheck,
     title: "Verify OTPs",
-    description: "Use OTP messages for sign-ups, logins, and password resets.",
+    description: "Check the code your user entered with the verify endpoint.",
   },
 ];
 
@@ -203,7 +206,7 @@ export default function DevelopersPage() {
 
             <div>
               <SectionHeading eyebrow="Endpoints" title="SMS">
-                Create and send SMS messages to your customers.
+                Send SMS messages to your customers and verify the one-time codes they enter.
               </SectionHeading>
               <ApiDocs />
             </div>

@@ -98,6 +98,92 @@
           "body": "{\n  \"success\": false,\n  \"message\": \"Invalid or missing API key\"\n}"
         }
       ]
+    },
+    {
+      "name": "Verify SMS",
+      "request": {
+        "method": "POST",
+        "description": "Checks the one-time code a user entered against the code sent to their phone number.",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"to\": \"+251911234567\",\n  \"code\": \"482913\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/dagusms/v1/verify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "dagusms", "v1", "verify"]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"+251911234567\",\n  \"code\": \"482913\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/dagusms/v1/verify",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dagusms", "v1", "verify"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"success\": true,\n  \"message\": \"Code verified successfully\",\n  \"data\": {\n    \"to\": \"+251911234567\",\n    \"verified\": true,\n    \"verifiedAt\": \"2026-11-16T09:31:12.000Z\"\n  }\n}"
+        },
+        {
+          "name": "400 Bad Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"+251911234567\",\n  \"code\": \"000000\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/dagusms/v1/verify",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dagusms", "v1", "verify"]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"success\": false,\n  \"message\": \"Invalid or expired verification code\"\n}"
+        },
+        {
+          "name": "401 Unauthorized",
+          "originalRequest": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"+251911234567\",\n  \"code\": \"482913\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/dagusms/v1/verify",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dagusms", "v1", "verify"]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"success\": false,\n  \"message\": \"Invalid or missing API key\"\n}"
+        }
+      ]
     }
   ]
 }
